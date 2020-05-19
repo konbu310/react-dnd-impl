@@ -36,7 +36,7 @@ type Props = {
 //
 // @ View
 //
-export const DnD: FC<Props> = (props) => {
+export const Dnd: FC<Props> = (props) => {
   const { list, setList } = props;
 
   const containerRef = useRef<HTMLDivElement | null>(null);

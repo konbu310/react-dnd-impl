@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ChangeEvent, FC, useState } from "react";
 import { genTestData, State } from "./util";
-import { DnD } from "./DnD";
+import { Dnd } from "./Dnd";
 
 // ______________________________________________________
 //
@@ -34,7 +34,7 @@ export const App: FC = () => {
         <button onClick={update}>UPDATE</button>
       </div>
 
-      <DnD list={list} setList={setList} />
+      <Dnd list={list} setList={setList} />
     </section>
   );
 };
