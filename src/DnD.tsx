@@ -50,11 +50,14 @@ export const Dnd: FC<Props> = (props) => {
 
   useEffect(() => {
     if (!itemsRef.current || !listClone.current) return;
-    listClone.current.map((item) => {
-      itemsRef.current[item.id]?.addEventListener("touchmove", (ev) =>
-        ev.preventDefault()
-      );
-    });
+    listClone.current.map(
+      (item) => {
+        itemsRef.current[item.id]?.addEventListener("touchmove", (ev) =>
+          ev.preventDefault()
+        );
+      },
+      { passive: false }
+    );
   }, [itemsRef]);
 
   const onDrag: DragHandlers = {
@@ -69,7 +72,6 @@ export const Dnd: FC<Props> = (props) => {
     // onDragEnter
     enter: (id) => (ev) => {
       const containerElm = containerRef.current;
-      if (!containerElm) return;
       if (!draggingElmId.current || !containerElm) return;
 
       const draggingElm = itemsRef.current[draggingElmId.current];
